@@ -1,0 +1,13 @@
+{
+  "name": "@types/ndarray-types",
+  "private": true,
+  "version": "0.0.0",
+  "description": "ndarray types",
+  "main": "",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Giff Song <giff.song@gmail.com>",
+  "license": "MIT"
+}
