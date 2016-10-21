@@ -1,8 +1,8 @@
 {
-  "name": "@types/ndarray-types",
+  "name": "@types/typedarray-pool-types",
   "private": true,
   "version": "0.0.0",
-  "description": "ndarray types",
+  "description": "typedarray-pool types",
   "main": "",
   "types": "index.d.ts",
   "scripts": {

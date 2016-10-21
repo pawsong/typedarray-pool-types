@@ -1,24 +1,36 @@
-declare module 'ndarray' {
-  type Data =
-    Array<number> | Int8Array | Int16Array | Int32Array |
-    Uint8Array | Uint16Array | Uint32Array |
-    Float32Array | Float64Array | Uint8ClampedArray;
+declare module 'typedarray-pool' {
+  type DataType =
+    'uint8' | 'uint16' | 'uint32' | 'int8' | 'int16' | 'int32' |
+    'float' | 'float32' | 'double' | 'float64' | 'arraybuffer' |
+    'data' | 'uint8_clamped' | 'buffer';
 
-  interface ndarray {
-    data: Data;
-    shape: number[];
-    stride: number[];
-    offset: number;
-    get(...args: number[]): number;
-    set(...args: number[]): number;
-    lo(...args: number[]): ndarray;
-    hi(...args: number[]): ndarray;
-    step(...args: number[]): ndarray;
-    transpose(...args: number[]): ndarray;
-    pick(...args: number[]): ndarray;
-  }
+  export function malloc(n: number, dtype?: DataType): any;
 
-  function ndarray(data: Data, shape?: number[], stride?: number[], offset?: number): ndarray;
+  export function mallocUint8(n: number): Uint8Array;
+  export function mallocUint16(n: number): Uint16Array;
+  export function mallocUint32(n: number): Uint32Array;
+  export function mallocUint8Clamped(n: number): Uint8ClampedArray;
+  export function mallocInt8(n: number): Int8Array;
+  export function mallocInt16(n: number): Int16Array;
+  export function mallocInt32(n: number): Int32Array;
+  export function mallocFloat(n: number): Float32Array;
+  export function mallocDouble(n: number): Float64Array;
+  export function mallocArrayBuffer(n: number): ArrayBuffer;
+  export function mallocDataView(n: number): DataView;
+  export function mallocBuffer(n: number): any;
 
-  export = ndarray;
+  export function free(array: any): void;
+
+  export function freeUint8(array: Uint8Array): void;
+  export function freeUint16(array: Uint16Array): void;
+  export function freeUint32(array: Uint32Array): void;
+  export function freeUint8Clamped(array: Uint8ClampedArray): void;
+  export function freeInt8(array: Int8Array): void;
+  export function freeInt16(array: Int16Array): void;
+  export function freeInt32(array: Int32Array): void;
+  export function freeFloat(array: Float32Array): void;
+  export function freeDouble(array: Float64Array): void;
+  export function freeArrayBuffer(buffer: ArrayBuffer): void;
+  export function freeDataView(view: DataView): void;
+  export function freeBuffer(buffer: any): void;
 }
